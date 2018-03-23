@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="喵酱">
 <meta property="og:description" content="最近在应付一个电商项目，初次接触的时候是很有热情的，但是到了后来才发现，就跟网站管理员的一样。 大家所熟知的织梦CMS、PHPCMS差不多，只不过这些系统主要是对内容进行管理，但是ofbiz是有针对性的在电子商务方面比较擅长（吧）。 ofbiz的功能可以说是，多而杂。 我们需要哪些功能其中，我们选取了几个功能点开始了所谓的二次开发？其实因为本身的功能都很齐全，所以我们只是让它跑起来，然后开始 换">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-23T15:34:59.514Z">
+<meta property="og:updated_time" content="2018-03-23T15:36:56.977Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ofbiz 整理（雾）">
 <meta name="twitter:description" content="最近在应付一个电商项目，初次接触的时候是很有热情的，但是到了后来才发现，就跟网站管理员的一样。 大家所熟知的织梦CMS、PHPCMS差不多，只不过这些系统主要是对内容进行管理，但是ofbiz是有针对性的在电子商务方面比较擅长（吧）。 ofbiz的功能可以说是，多而杂。 我们需要哪些功能其中，我们选取了几个功能点开始了所谓的二次开发？其实因为本身的功能都很齐全，所以我们只是让它跑起来，然后开始 换">
@@ -211,7 +211,7 @@
 <h2 id="2、ftl中文乱码"><a href="#2、ftl中文乱码" class="headerlink" title="2、ftl中文乱码"></a>2、ftl中文乱码</h2><h3 id="2-1、针对Windows用户"><a href="#2-1、针对Windows用户" class="headerlink" title="2.1、针对Windows用户"></a>2.1、针对Windows用户</h3><p>./gradlew.bat<br>跳到90行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;%JAVA_EXE%&quot; %DEFAULT_JVM_OPTS% %JAVA_OPTS% %GRADLE_OPTS% &quot;-Dorg.gradle.appname=%APP_BASE_NAME%&quot; -classpath &quot;%CLASSPATH%&quot;  org.gradle.wrapper.GradleWrapperMain %CMD_LINE_ARGS%</span><br></pre></td></tr></table></figure></p>
 <p>更改为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;%JAVA_EXE%&quot; %DEFAULT_JVM_OPTS% %JAVA_OPTS% %GRADLE_OPTS% &quot;-Dorg.gradle.appname=%APP_BASE_NAME%&quot; -classpath &quot;%CLASSPATH%&quot; -Dfile.encoding=UTF-8 org.gradle.wrapper.GradleWrapperMain %CMD_LINE_ARGS%</span><br></pre></td></tr></table></figure></p>
 <h3 id="2-2、针对Linux用户"><a href="#2-2、针对Linux用户" class="headerlink" title="2.2、针对Linux用户"></a>2.2、针对Linux用户</h3><p>./gradlew<br>跳至179行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exec &quot;$JAVACMD&quot; &quot;$&#123;JVM_OPTS[@]&#125;&quot; -classpath &quot;$CLASSPATH&quot; org.gradle.wrapper.GradleWrapperMain &quot;$@&quot;</span><br></pre></td></tr></table></figure></p>
-<p>更改为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exec &quot;$JAVACMD&quot; &quot;$&#123;JVM_OPTS[@]&#125;&quot; -classpath &quot;$CLASSPATH&quot; -Dfile.encoding=UTF-8 org.gradle.wrapper.GradleWrapperMain &quot;$@&quot;</span><br></pre></td></tr></table></figure></p>
+<p>更改为<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exec "$JAVACMD" "$&#123;JVM_OPTS[@]&#125;" -classpath "$CLASSPATH" -Dfile.encoding=UTF-8 org.gradle.wrapper.GradleWrapperMain "$@"</span><br></pre></td></tr></table></figure></p>
 
       
 
